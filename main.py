@@ -13,9 +13,23 @@ def main():
 
     time.sleep(3)
     os.system('cls') # Cleans the terminal screen
-    number = input(user_select)
 
-    print(user_choice + number)
+    while True :
+        try : 
+            number = int(input(user_select))
+            if number < 1 or number > 6 :
+                print("Give a number between 1 and 6 please")
+                continue
+            else : 
+                break
+        except ValueError :
+            print("Give a number between 1 and 6 please")
+            continue
+        except KeyboardInterrupt :
+            print("Quitting the program")
+            break
+
+    print(user_choice + str(number))
 
     # Need to block the using from using anything else than asked numbers
 
